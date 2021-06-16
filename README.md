@@ -1,6 +1,6 @@
 # IMAGINE - In silico Metagenomics Pipeline (BETA)
 
-This is a metagenomic workflow which starts from filtering the raw reads and ends in binning metagenome-assembled genomes.
+IMAGINE is a metagenomic workflow which includes filtering, assembling, and binning
 
 This workflow includes the following tools which are needed to be installed in the system.
 
