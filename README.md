@@ -16,6 +16,25 @@ This workflow includes the following tools which are needed to be installed in t
 git clone repository
 chmod a+x imagine.sh
 ```
+## For running IMAGINE
+```
+./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
+
+```
+### For help
+
+```
+./imagine.sh -h
+
+```
+
 ## Important consideration:
 
 All the parameters set in the shell script are optimized for specific marine system metagenome. These parameters should be tested and tried while working with metagenomes from other systems/environments
+
+## How it works?
+
+###Filtering of raw reads
+
+Quality assessment and filtering of raw reads are done using fastp. This generates 
+
