@@ -19,13 +19,11 @@ chmod a+x imagine.sh
 ## For running IMAGINE
 ```
 ./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
-
 ```
 ### For help
 
 ```
 ./imagine.sh -h
-
 ```
 
 ## Important consideration:
@@ -34,7 +32,7 @@ All the parameters set in the shell script are optimized for specific marine sys
 
 ## How it works?
 
-###Filtering of raw reads
+### Filtering of raw reads
 
 Quality assessment and filtering of raw reads are done using fastp. This generates 
 
