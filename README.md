@@ -53,9 +53,21 @@ Many of the steps/processes/tools uses multi-threads for parallelization and the
 
 ### Filtering of raw reads
 
-Quality assessment and filtering of raw reads are done using fastp. The user can play around with a lot of [parameters](https://github.com/OpenGene/fastp#all-options) and also modify IMAGINE accordingly. IMAGINE uses default parameters along with -e 30 for removing all the reads whoes average quality score is less than 30. This is done to remove low quality reads since the assembling using metapsades is ver sensetive to low quality data. :warning: The -w (number of threads used) is kept to 1 to make the run deterministic (reporducible). The user can change -w to higher values, but should be aware of non-reporducible results (the changes in result will be ver low and not significant)
+Quality assessment and filtering of raw reads are done using fastp. The user can play around with a lot of [parameters](https://github.com/OpenGene/fastp#all-options) and also modify IMAGINE accordingly. IMAGINE uses default parameters along with -e 30 for removing all the reads whoes average quality score is less than 30. This is done to remove low quality reads since the assembling using metapsades is very sensetive to low quality data. 
+
+:warning: The -w (number of threads used) is kept to 1 to make the run deterministic (reproducible). The user can change -w to higher values, but should be aware of non-reporducible results (the changes in result will be very low and not significant) :zebra:. Since this process does not take a huge time, setting number of threads to 1 will not increase the run time hugely.
 
 ### Assembling and checking assembly qualities
+
+#### Assembly
+
+Assembling will be done using metaSPAdes. This is the most time-taking process. Selection of k-mers can be an important thing, but I wouldn't waste too much time in it. The default k-mer values are set to 21,33,55. Selection of k-mers should be governed by sample type (natural or engineered environment), complexity of microbiome (high or low diverse :confused: - I know these words are relative), size of the sequenced reads, and other parameters (I might have missed some :worried:). My perspective (might vary among researchers and bioinformaticians), for high complex metagenomes from natura environment having 150 bp paired-end sequencing, the default parameters (21, 33, 55) should work well; and if you think that the system/environment is defined and are low complex and the depth of sequencing is very high, you can increase the k-mer (I even went up to 127 with 21, 33, 55, 77, 99, 127 for an engineered environment and got good results :sunglasses:. You can play around with other [parameters](https://cab.spbu.ru/files/release3.15.2/manual.html), and also learn more about spades [here](https://cab.spbu.ru/files/release3.15.2/manual.html).
+
+:warning: The resource usage should be set depending on the resource available and the data size. The maximum threads (-t) and RAM (-m) are set to 20 and 300 GB. Good thing is that the actual amount of RAM consumed will be lower for many steps. There are two main steps done by SPAdes assembler viz. 1. Read correction and 2. Assembly. For assembly, similar number of threads should give reporducible results, but for the Read corrections (done using BayesHammer), I found that even for similar number of threads, the results might vary. I feel that this variations are governed by resources usage by other processes on the computer/server system that is being used. One can stop the read correction step and only use the assembler to get reprocucible results, but using read correction results in high-quality assemblies (developer recommendation). I feel that one should use the read correction step since the results are not very different.
+
+#### Quality assessment of assemblies
+
+Quality of the assemblies are checked using QUAST. There are different outputs in quast which can be used for assembly assessment. N50 values, L50 values, longest contigs, size distribution of contigs are some the parameters to look for to understand the assembly quality. One can also use metaquast which has some enhanced features, but for the sake of resource usage and run time, the default is set to quast. Details of QUAST can be found [here](http://quast.sourceforge.net/quast.html)
 
 ### Binning and checking bin qualities
 
