@@ -53,7 +53,7 @@ Many of the steps/processes/tools uses multi-threads for parallelization and the
 
 ### Filtering of raw reads
 
-Quality assessment and filtering of raw reads are done using fastp. 
+Quality assessment and filtering of raw reads are done using fastp. The user can play around with a lot of [parameters](https://github.com/OpenGene/fastp#all-options) and also modify IMAGINE accordingly. IMAGINE uses default parameters along with -e 30 for removing all the reads whoes average quality score is less than 30. This is done to remove low quality reads since the assembling using metapsades is ver sensetive to low quality data. :warning: The -w (number of threads used) is kept to 1 to make the run deterministic (reporducible). The user can change -w to higher values, but should be aware of non-reporducible results (the changes in result will be ver low and not significant)
 
 ### Assembling and checking assembly qualities
 
