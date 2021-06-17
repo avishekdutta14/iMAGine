@@ -30,9 +30,11 @@ Most of the tools has its own set of installation protocol and dependencies. The
 ./imagine.sh -h
 ```
 
-## Important consideration:
+## Important consideration
 
 All the parameters set in the shell script are optimized for specific marine system metagenome. These parameters should be tested and tried while working with metagenomes from other systems/environments. Some thoughts about selecting certain parameters are shared in the following section [How it works?](https://github.com/avishekdutta14/IMagINE/blob/main/README.md#how-it-works) and detailed description for parameter selection can be obtained from the manuals of each aforesaid tool.
+
+## Important disclosure :warning: :warning: :warning:
 
 ## Output files
 
