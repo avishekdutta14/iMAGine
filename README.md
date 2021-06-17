@@ -37,12 +37,13 @@ All the parameters set in the shell script are optimized for specific marine sys
 ## Output files
 
 1. imagine.txt - A log file containing the stdout of the overall workflow. This will help to understand if there is any error in the pipeline. This also gives the track of the versions and syntaxes used for different tools. More importantly, this gives you a sense of time required for most of the steps (which can be used in future for time estimations and resource usage). This also contains other information like filtering qulatiies of reads and also bin qualities.
-2. fastp.html and fastp.json - these are the output of fastp which contains information about read filtering.
-3. metaspades_output_sample_name -  output folder containing spades output.
-4. quast_output - A folder contianing QUAST output from which one can determine the assembly quality, contig sizes, and other informations about assemblies. 
-5. binning - a folder containg intermediate files (.sam, .bam and other index file) for mapping and two sub-folders - bins_dir/ and checkm/
-6. bins_dir - a sub-folder under binning which contains all the bins
-7. checkm - contains information about the quality of the bins
+2. filtered reads: sample_name_filt_R1.fq.gz and sample_name_filt_R2.fq.gz - these are filtered Read 1 and Read 2 respectively.
+3. fastp.html and fastp.json - these are the output of fastp which contains information about read filtering.
+4. metaspades_output_sample_name -  output folder containing spades output.
+5. quast_output - A folder contianing QUAST output from which one can determine the assembly quality, contig sizes, and other informations about assemblies. 
+6. binning - a folder containg intermediate files (.sam, .bam and other index file) for mapping and two sub-folders - bins_dir/ and checkm/
+7. bins_dir - a sub-folder under binning which contains all the bins
+8. checkm - contains information about the quality of the bins
 
 ## How it works?
 
