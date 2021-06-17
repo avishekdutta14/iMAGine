@@ -82,6 +82,6 @@ Then comes metabat2 (finally!!!!), which will help to bin based on abundance and
 
 #### Checking Bin qualities
 
-Last but not the least, is checking the bin qualities. Bin qualities are checked using CheckM tool. Bins can be referred to as high-quality draft (>90% completeness, <5% contamination), medium-quality draft (>50% completeness, <10% contamination) or low-quality draft (<50% completeness, <10% contamination) MAGs as suggested by [Bowers et al., 2017] (https://www.nature.com/articles/nbt.3893)
+Last but not the least, is checking the bin qualities. Bin qualities are checked using CheckM tool. Bins can be referred to as high-quality draft (>90% completeness, <5% contamination), medium-quality draft (>50% completeness, <10% contamination) or low-quality draft (<50% completeness, <10% contamination) MAGs as suggested by [Bowers et al., 2017](https://www.nature.com/articles/nbt.3893)
 
 ## How to cite
