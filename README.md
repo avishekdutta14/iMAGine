@@ -8,8 +8,9 @@ This workflow includes the following tools which are needed to be installed in t
 2. [spades assembler](https://github.com/ablab/spades)
 3. [QUAST](https://github.com/ablab/quast)
 4. [bwa](https://github.com/lh3/bwa)
-5. [metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/)
-6. [CheckM](https://github.com/Ecogenomics/CheckM)
+5. [samtools](https://github.com/samtools/samtools)
+6. [metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/)
+7. [CheckM](https://github.com/Ecogenomics/CheckM)
 
 ## Downloading 
 ```
@@ -32,7 +33,7 @@ Most of the tools has its own set of installation protocol and dependencies. The
 
 ## Important consideration
 
-All the parameters set in the shell script are optimized for specific marine system metagenome. These parameters should be tested and tried while working with metagenomes from other systems/environments. Some thoughts about selecting certain parameters are shared in the following section [How it works?](https://github.com/avishekdutta14/IMagINE/blob/main/README.md#how-it-works) and detailed description for parameter selection can be obtained from the manuals of each aforesaid tool.
+All the parameters set in the shell script are optimized for specific marine system metagenome. These parameters should be tested and tried while working with metagenomes from other systems/environments. Some thoughts about selecting certain parameters are shared in the following section [How it works?](https://github.com/avishekdutta14/IMagINE/blob/main/README.md#how-it-works) and detailed description for parameter selection can be obtained from the manuals of each aforesaid tool. Please be cautious about selecting and changing the number of threads selected for each process as this will vary amond systems.
 
 ## Important disclosure :warning: :warning: :warning:
 
@@ -70,5 +71,17 @@ Assembling will be done using metaSPAdes. This is the most time-taking process. 
 Quality of the assemblies are checked using QUAST. There are different outputs in quast which can be used for assembly assessment. N50 values, L50 values, longest contigs, size distribution of contigs are some the parameters to look for to understand the assembly quality. One can also use metaquast which has some enhanced features, but for the sake of resource usage and run time, the default is set to quast. Details of QUAST can be found [here](http://quast.sourceforge.net/quast.html)
 
 ### Binning and checking bin qualities
+
+#### Binning
+
+Binning is done using metabat2, and the mapping/alignement of reads are done using bwa to generate alignment files, which can be further converted to an abundance profile using jgi_summarize_bam_contig_depths (a tool present in the metabat2 [repository](https://bitbucket.org/berkeleylab/metabat/src/master/)). bwa mem ([details here](http://bio-bwa.sourceforge.net/bwa.shtml)) is used for alignment. The user can also use bowtie2 for this. If someone wants to use bowtie2 for the alignments, please contact me. I can modify the script accordingly.
+
+Samtools is used convert .sam file to .bam file and to sort the .bam file since the input of jgi_summarize_bam_contig_depths should be a sorted .bam file.
+
+Then comes metabat2 (finally!!!!), which will help to bin based on abundance and tetra nucleotide frequency of the contigs. Though the abundance profile is optional, but I would recommend to use the abundance profile for better binning. I have changed minimum size of a contig for binning (-m) from 2500 (default) to 1500, since I  wanted to consider the smaller contigs (but if you want to stick with the default value, you can remove the -m flag). For more details please refer the metabat2 [manual](https://bitbucket.org/berkeleylab/metabat/src/master/). Here comes the good part :grinning:, thanks to the developers :pray: that metabat2 can be reproducible, though it have some sections to pick things (again probabilities/predictibilities). You can set seed values to make it reproducible. I chose a random number 1234 (it came to my mind when writing the script) as seed for the script. You can modify it if you want. 
+
+#### Checking Bin qualities
+
+Last but not the least, is checking the bin qualities. Bin qualities are checked using CheckM tool. Bins can be referred to as high-quality draft (>90% completeness, <5% contamination), medium-quality draft (>50% completeness, <10% contamination) or low-quality draft (<50% completeness, <10% contamination) MAGs as suggested by [Bowers et al., 2017] (https://www.nature.com/articles/nbt.3893)
 
 ## How to cite
