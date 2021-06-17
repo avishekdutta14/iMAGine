@@ -36,6 +36,8 @@ All the parameters set in the shell script are optimized for specific marine sys
 
 ## Important disclosure :warning: :warning: :warning:
 
+Many of the steps/processes/tools uses multi-threads for parallelization and the user can modify it accordingly. This increases the resource usage and also decreases the time needed to run a processes. This is highly desirable, but it comes with a sacrifice. Many processes used in this pipeline usese probabilistic models. Probabilistic models and many other machine learning models are impacted by number of threads used, since the probabilities and predictions can vary while computing in different threads/cpus. But, the good news is that this variations are not significant. The results generated will be different (unfortunately), but the difference is small (fortunately). To understand and identify the steps in which you can expect variations are mentioned in the [How it works?](https://github.com/avishekdutta14/IMagINE/blob/main/README.md#how-it-works) section.  
+
 ## Output files
 
 1. imagine.txt - A log file containing the stdout of the overall workflow. This will help to understand if there is any error in the pipeline. This also gives the track of the versions and syntaxes used for different tools. More importantly, this gives you a sense of time required for most of the steps (which can be used in future for time estimations and resource usage). This also contains other information like filtering qulatiies of reads and also bin qualities.
