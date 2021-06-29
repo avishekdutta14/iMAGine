@@ -84,7 +84,7 @@ Then comes metabat2 (finally!!!!), which will help to bin based on abundance and
 
 Last but not least is checking the bin qualities. Bin qualities are checked using the CheckM tool. Bins can be referred to as high-quality draft (>90% completeness, <5% contamination), medium-quality draft (>50% completeness, <10% contamination) or low-quality draft (<50% completeness, <10% contamination) MAGs as suggested by [Bowers et al., 2017](https://www.nature.com/articles/nbt.3893)
 
-## For bin segregation the mag_extract.py can be used
+## For bin segregation mag_extract.py can be used
 
 mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. For use, place the script in the folder where the folder contains bins are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The output can be obtained from the storage folder under the check output (i.e., bin_stats_ext.tsv).
 
