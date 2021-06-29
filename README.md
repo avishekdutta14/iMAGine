@@ -48,7 +48,7 @@ Many of the steps/processes/tools use multi-threads for parallelization, and the
 5. quast_output - A folder containing QUAST output from which one can determine the assembly quality, contig sizes, and other information about assemblies. 
 6. binning - a folder containing intermediate files (.sam, .bam, and other index files) for mapping and two sub-folders - bins_dir/ and checkm/
 7. bins_dir - a sub-folder under binning which contains all the bins
-8. checkm - contains information about the quality of the bins
+8. checkm - a sub-folder under binning that contains information about the quality of the bins
 
 ## How it works?
 
