@@ -86,7 +86,7 @@ Last but not least is checking the bin qualities. Bin qualities are checked usin
 
 ## For bin segregation mag_extract.py can be used
 
-mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. For use, place the script in the folder where the folder contains bins are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The output can be obtained from the storage folder under the check output (i.e., bin_stats_ext.tsv).
+mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. For running it, place the script in the folder where the bin output folder are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The required checkm input can be obtained from the storage folder (checkm_ouptut/storage/bin_stats_ext.tsv) under the checkm output  (i.e., bin_stats_ext.tsv).
 
 mag_extract.py can be ran using the following command
 ```
