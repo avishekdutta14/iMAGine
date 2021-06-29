@@ -84,6 +84,23 @@ Then comes metabat2 (finally!!!!), which will help to bin based on abundance and
 
 Last but not least is checking the bin qualities. Bin qualities are checked using the CheckM tool. Bins can be referred to as high-quality draft (>90% completeness, <5% contamination), medium-quality draft (>50% completeness, <10% contamination) or low-quality draft (<50% completeness, <10% contamination) MAGs as suggested by [Bowers et al., 2017](https://www.nature.com/articles/nbt.3893)
 
+## For bin segregation the mag_extract.py can be used
+
+mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. For use, place the script in the folder where the folder contains bins are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The output can be obtained from the storage folder under the check output (i.e., bin_stats_ext.tsv).
+
+mag_extract.py can be ran using the following command
+```
+chmod a+x mag_extract.py
+./mag_extract.py
+```
+mag_extract.py can also be added to PATH, but the script should be implemented in a folder where bins_dir/ and bin_stats_ext.tsv is present
+
+#### The output of mag_extract.py
+
+1. checkm_bin_quality.csv - Information about bins segregated in high-, medium-, and low- quality drafts
+2. 3 folders viz. high_qual_draft, medium_qual_draft, and low_qual_draft containing high-, medium-, and low- quality bins as per checkm classification
+
+
 ## How to cite
 
 1. fastp - Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu, fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 01 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
