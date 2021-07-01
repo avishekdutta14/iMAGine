@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#@author: Avishek Dutta, avdutta@ucsd.edu
+
 helpFunction()
 {
    echo -e "\t Usage: ./imagine.sh -r LMG2001_200121_7-R1.fastq.gz -R LMG2001_200121_7-R2.fastq.gz -s sample_name |& tee -a imagine.txt"
