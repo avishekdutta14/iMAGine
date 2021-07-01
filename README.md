@@ -25,6 +25,8 @@ Most of the tools have their own set of installation protocols and dependencies.
 ```
 ./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
 ```
+*sample_name is the name used for all the intermediate files and also serves as a prefix for the final bin names*
+
 ### For help
 
 ```
