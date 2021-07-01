@@ -14,7 +14,7 @@ This workflow includes the following tools which are needed to be installed in t
 
 ## Downloading 
 ```
-git clone repository
+git clone https://github.com/avishekdutta14/IMAGINE
 chmod a+x imagine.sh
 ```
 ### Installation and validation of dependencies
