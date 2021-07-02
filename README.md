@@ -127,7 +127,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 3. [Prodigal](https://github.com/hyattpd/Prodigal) followed by annotation using KEGG or other databases - Same as mentioned [before](https://github.com/avishekdutta14/IMAGINE#for-annotating-assembled-contigs-whole-metagenome). But be sure to use the correct parameters. For genomes use [BLASTKoala](https://www.kegg.jp/blastkoala/) server for KEGG-based annotation.
 4. [RAST](https://rast.nmpdr.org/rast.cgi) - RAST annotation is done based on subsystems technology. It is an online platform and gives you a wide array of results.
 5. [PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) - This tool can be found both [online](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) and [offline](https://github.com/ncbi/pgap). The offline tool is appropriate for researchers planning on submitting genomes to NCBI. The online version can be accessed after submission of the genome to NCBI database. An overview of the pipeline can be found [here](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/process/).
-6. [eggNOG](http://eggnog5.embl.de/#/app/home) - This tool can also be used for genome. Please refer to [metagenome annotation section]() for more details.
+6. [eggNOG](http://eggnog5.embl.de/#/app/home) - This tool can also be used for genome. Please refer to [metagenome annotation section](https://github.com/avishekdutta14/IMAGINE/blob/main/README.md#for-annotating-assembled-contigs-whole-metagenome) for more details.
 
 ## How to cite
 
