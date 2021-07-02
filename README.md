@@ -107,7 +107,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 1. checkm_bin_quality.csv - Information about bins segregated in high-, medium-, and low- quality drafts
 2. 3 folders viz. high_qual_draft, medium_qual_draft, and low_qual_draft containing high-, medium-, and low- quality bins as per checkm classification
 
-## For downstream analyses (mainly functional and taxonomic annotations) with outputs from IMAGINE and other metagenome workflows (Tips and Tricks) :gift:
+## For downstream analyses (mainly functional and taxonomic annotations) with outputs from IMAGINE and other metagenomic workflows (Tips and Tricks) :gift:
 
 ### For annotating filtered reads for taxonomic affiliation
 
