@@ -105,6 +105,28 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 1. checkm_bin_quality.csv - Information about bins segregated in high-, medium-, and low- quality drafts
 2. 3 folders viz. high_qual_draft, medium_qual_draft, and low_qual_draft containing high-, medium-, and low- quality bins as per checkm classification
 
+## For downstream analyses (mainly functional and taxonomic annotations) with IMAGINE output (Tips and Tricks) :gift:
+
+### For annotating filtered reads for taxonomic affiliation
+
+[Kaiju](http://kaiju.binf.ku.dk/) can be used for this. For offline use please visit the Kaiju github [link](https://github.com/bioinformatics-centre/kaiju). Do not forget to download the [reference database](http://kaiju.binf.ku.dk/server) for Kaiju.
+
+### For annotating assembled contigs (whole metagenome)
+
+1. Kaiju
+2. Prodigal followed by annotation using KEGG or other databases
+3. Prokka (a fast one)
+4. IMG
+5. eggNOG
+6. MG-RAST
+
+### For assembling MAGs/Genomes
+
+1. GTDB-Tk (for taxonomic affiliation)
+2. Prokka (a fast one)
+3. Prodigal followed by annotation using KEGG or other databases
+4. RAST
+
 
 ## How to cite
 
