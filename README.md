@@ -109,7 +109,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 
 ### For annotating filtered reads for taxonomic affiliation
 
-[Kaiju](http://kaiju.binf.ku.dk/) can be used for this. For offline use please visit the Kaiju github [link](https://github.com/bioinformatics-centre/kaiju). Do not forget to download the [reference database](http://kaiju.binf.ku.dk/server) for Kaiju.
+[Kaiju](http://kaiju.binf.ku.dk/) can be used for this. For offline use please visit the Kaiju github [link](https://github.com/bioinformatics-centre/kaiju). Do not forget to download the [reference database](http://kaiju.binf.ku.dk/server) for Kaiju if you are using offline version.
 
 ### For annotating assembled contigs (whole metagenome)
 
