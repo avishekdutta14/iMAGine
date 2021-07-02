@@ -131,7 +131,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 5. [PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) - This tool can be found both [online](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) and [offline](https://github.com/ncbi/pgap). The offline tool is appropriate for researchers planning on submitting genomes to NCBI. The online version can be accessed after submission of the genome to NCBI database. An overview of the pipeline can be found [here](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/process/).
 6. [eggNOG](http://eggnog5.embl.de/#/app/home) - This tool can also be used for genome. Please refer to [metagenome annotation section](https://github.com/avishekdutta14/IMAGINE/blob/main/README.md#for-annotating-assembled-contigs-whole-metagenome) for more details.
 
-## How to cite (IMAGINE)
+## How to cite
 
 1. fastp - Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu, fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 01 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 2. MetaSPAdes - Nurk S, Meleshko D, Korobeynikov A, Pevzner PA. metaSPAdes: a new versatile metagenomic assembler. Genome Res. 2017;27(5):824-834. doi:10.1101/gr.213959.116
