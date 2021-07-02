@@ -123,7 +123,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 ### For annotating MAGs/Genomes
 
 1. [GTDB-Tk](https://ecogenomics.github.io/GTDBTk/) (for taxonomic affiliation) - This tool used [Genome Taxonomy Database](https://gtdb.ecogenomic.org/) for taxonomic annotation of MAGs or Genomes
-2. Prokka (a fast one) - Same as mentioned before. But be sure to select the correct mode of annotation. And use the correct flag for [-kingdom](https://github.com/tseemann/prokka#command-line-options). You can also play around with the other [parameters](https://github.com/tseemann/prokka#command-line-options)
+2. [Prokka](https://github.com/tseemann/prokka) (a fast one) - Same as mentioned before. But be sure to select the correct mode of annotation. And use the correct flag for [-kingdom](https://github.com/tseemann/prokka#command-line-options). You can also play around with the other [parameters](https://github.com/tseemann/prokka#command-line-options)
 3. [Prodigal](https://github.com/hyattpd/Prodigal) followed by annotation using KEGG or other databases - Same as mentioned before. But be sure to use the correct parameters. For genomes use [BLASTKoala](https://www.kegg.jp/blastkoala/) server for KEGG-based annotation.
 4. [RAST](https://rast.nmpdr.org/rast.cgi) - RAST annotation is done based on subsystems technology. It is an online platform and gives you a wide array of results.
 
