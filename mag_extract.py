@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#@author: Avishek Dutta, avdutta@ucsd.edu
+"""
+@author: Avishek Dutta, avdutta@ucsd.edu
+@requires: python3, pandas, numpy
+"""
 
 import pandas as pd
 import numpy as np
