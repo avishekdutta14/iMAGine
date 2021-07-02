@@ -109,23 +109,24 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 
 ### For annotating filtered reads for taxonomic affiliation
 
-[Kaiju](http://kaiju.binf.ku.dk/) can be used for this. For offline use please visit the Kaiju github [link](https://github.com/bioinformatics-centre/kaiju). Do not forget to download the [reference database](http://kaiju.binf.ku.dk/server) for Kaiju if you are using offline version.
+[Kaiju](http://kaiju.binf.ku.dk/) can be used for this. For offline use, please visit the Kaiju GitHub [link](https://github.com/bioinformatics-centre/kaiju). Do not forget to download the [reference database](http://kaiju.binf.ku.dk/server) for Kaiju if you are using the offline version. In this step, you will get an idea of the taxonomic distribution of different domains of life (depending on the database you are using you can also get a rough idea of the eukaryotic population distribution).
 
 ### For annotating assembled contigs (whole metagenome)
 
-1. Kaiju
-2. Prodigal followed by annotation using KEGG or other databases
-3. Prokka (a fast one)
-4. IMG
-5. eggNOG
-6. MG-RAST
+1. [Kaiju](http://kaiju.binf.ku.dk/)- The same thing as before. Here, the classification may be resolved a bit better due to read assembly. But be aware, the distribution here is not directly proportional to the abundance of taxa in this step.
+2. [Prodigal](https://github.com/hyattpd/Prodigal) followed by annotation using [KEGG](https://www.genome.jp/kegg/)  or other databases - Prodigal is a fantastic tool in deciphering protein-coding genes for prokaryotic genomes. Be sure to select the [metagenome mode](https://github.com/hyattpd/Prodigal) for this step. Once you obtain the protein/amino acid sequences from prodigal, you can use [GhostKOALA server](https://www.kegg.jp/ghostkoala/), a KEGG-based annotation server. 
+3. [Prokka](https://github.com/tseemann/prokka) (a fast one) - I really like Prokka because it will give you a sense of the metagenomic inventory (rapidly). Prokka also uses prodigal. So if you are using Prokka, you will also get the translated amino sequences from here :tada:. This is an offline tool. Be sure to select the metagenome mode. 
+4. [IMG Annotation Pipeline](https://img.jgi.doe.gov/docs/pipelineV5/) - IMG annotation pipeline can also be used. It will give you both holistic and detailed view of the metagenome inventory. There are also many other downstream analysis tools present in the [online portal](https://img.jgi.doe.gov/cgi-bin/mer/main.cgi). This is an online tool. Please review the submission/privacy policy before submitting the data.
+5. [eggNOG](http://eggnog5.embl.de/#/app/home) - It has got both online and offline versions. The [online version](http://eggnog-mapper.embl.de/) has some restrictions on the amount of data that can be uploaded. You can find the overall workflow for eggNOG [here](http://eggnog-mapper.embl.de/static/emapper_workflow.png).
+6. [MG-RAST](https://www.mg-rast.org/) - MG-RAST has both online and offline versions. Please review the submission/privacy policy before submitting the data.
 
-### For assembling MAGs/Genomes
+### For annotating MAGs/Genomes
 
-1. GTDB-Tk (for taxonomic affiliation)
-2. Prokka (a fast one)
-3. Prodigal followed by annotation using KEGG or other databases
-4. RAST
+1. [GTDB-Tk](https://ecogenomics.github.io/GTDBTk/) (for taxonomic affiliation) - This tool used [Genome Taxonomy Database](https://gtdb.ecogenomic.org/) for taxonomic annotation of MAGs or Genomes
+2. Prokka (a fast one) - Same as mentioned before. But be sure to select the correct mode of annotation. And use the correct flag for [-kingdom](https://github.com/tseemann/prokka#command-line-options). You can also play around with the other [parameters](https://github.com/tseemann/prokka#command-line-options)
+3. [Prodigal](https://github.com/hyattpd/Prodigal) followed by annotation using KEGG or other databases - Same as mentioned before. But be sure to use the correct parameters. For genomes use [BLASTKoala](https://www.kegg.jp/blastkoala/) server for KEGG-based annotation.
+4. [RAST](https://rast.nmpdr.org/rast.cgi) - RAST annotation is done based on subsystems technology. It is an online platform and gives you a wide array of results.
+
 
 
 ## How to cite
