@@ -127,8 +127,6 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 3. [Prodigal](https://github.com/hyattpd/Prodigal) followed by annotation using KEGG or other databases - Same as mentioned before. But be sure to use the correct parameters. For genomes use [BLASTKoala](https://www.kegg.jp/blastkoala/) server for KEGG-based annotation.
 4. [RAST](https://rast.nmpdr.org/rast.cgi) - RAST annotation is done based on subsystems technology. It is an online platform and gives you a wide array of results.
 
-
-
 ## How to cite
 
 1. fastp - Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu, fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 01 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
@@ -138,3 +136,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 5. samtools- Li H, Handsaker B, Wysoker A, et al. The Sequence Alignment/Map format and SAMtools. Bioinformatics. 2009;25(16):2078-2079. doi:10.1093/bioinformatics/btp352
 6. metabat2- Kang DD, Li F, Kirton E, et al. MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ. 2019;7:e7359. Published 2019 Jul 26. doi:10.7717/peerj.7359
 7. checkM- Parks DH, Imelfort M, Skennerton CT, Hugenholtz P, Tyson GW. CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes. Genome Res. 2015;25(7):1043-1055. doi:10.1101/gr.186072.114
+
+## Disclaimer
+
+This tool and the suggested workflow is strictly intended for educational and academic purpose. The results for different tools might vary depending on the input dataset.
