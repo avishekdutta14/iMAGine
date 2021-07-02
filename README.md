@@ -129,7 +129,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 5. [PGAP](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) - This tool can be found both [online](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/) and [offline](https://github.com/ncbi/pgap). The offline tool is appropriate for researchers planning on submitting genomes to NCBI. The online version can be accessed after submission of the genome to NCBI database. An overview of the pipeline can be found [here](https://www.ncbi.nlm.nih.gov/genome/annotation_prok/process/).
 6. [eggNOG](http://eggnog5.embl.de/#/app/home) - This tool can also be used for genome. Please refer to [metagenome annotation section](https://github.com/avishekdutta14/IMAGINE/blob/main/README.md#for-annotating-assembled-contigs-whole-metagenome) for more details.
 
-## How to cite
+## How to cite (IMAGINE)
 
 1. fastp - Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu, fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 01 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560
 2. MetaSPAdes - Nurk S, Meleshko D, Korobeynikov A, Pevzner PA. metaSPAdes: a new versatile metagenomic assembler. Genome Res. 2017;27(5):824-834. doi:10.1101/gr.213959.116
@@ -138,6 +138,8 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 5. samtools- Li H, Handsaker B, Wysoker A, et al. The Sequence Alignment/Map format and SAMtools. Bioinformatics. 2009;25(16):2078-2079. doi:10.1093/bioinformatics/btp352
 6. metabat2- Kang DD, Li F, Kirton E, et al. MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ. 2019;7:e7359. Published 2019 Jul 26. doi:10.7717/peerj.7359
 7. checkM- Parks DH, Imelfort M, Skennerton CT, Hugenholtz P, Tyson GW. CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes. Genome Res. 2015;25(7):1043-1055. doi:10.1101/gr.186072.114
+
+If you are using any other downstream tools mentioned in this documentation, please cite them in the literature.
 
 ## Disclaimer
 
