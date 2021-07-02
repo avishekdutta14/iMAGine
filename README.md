@@ -139,7 +139,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 6. metabat2- Kang DD, Li F, Kirton E, et al. MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ. 2019;7:e7359. Published 2019 Jul 26. doi:10.7717/peerj.7359
 7. checkM- Parks DH, Imelfort M, Skennerton CT, Hugenholtz P, Tyson GW. CheckM: assessing the quality of microbial genomes recovered from isolates, single cells, and metagenomes. Genome Res. 2015;25(7):1043-1055. doi:10.1101/gr.186072.114
 
-If you are using any other downstream tools mentioned in this documentation, please cite them in the literature.
+If you are using any other downstream annotation tools mentioned in this documentation, please cite them in the literature.
 
 ## Disclaimer
 
