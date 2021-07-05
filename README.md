@@ -21,7 +21,7 @@ chmod a+x imagine.sh
 
 Most of the tools have their own set of installation protocols and dependencies. They can be obtained from the links mentioned above. This pipeline requires an output of each tool to be piped into the next tool (except for QUAST and the CheckM- since this is the last tool).
 
-## For running IMAGINE
+## For running iMAGine
 ```
 ./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
 ```
