@@ -1,4 +1,4 @@
-# IMAGINE - ***I***n silico ***M***et***AG***enomics Pipel***INE*** (BETA)
+# iMAGine - ***I***n silico ***M***et***AG***enomics Pipel***ine*** (BETA)
 
 **IMAGINE** is a metagenomic workflow which includes filtering, assembling, and binning
 
