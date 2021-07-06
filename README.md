@@ -26,7 +26,7 @@ Most of the tools have their own set of installation protocols and dependencies.
 ```
 docker pull avishekdutta14/imagine:latest
 ```
-*All the tools can also be ran separately inside the imagine docker container*
+*All the tools can also be ran separately inside the imagine docker container.*
 
 ## For running iMAGine
 ```
