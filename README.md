@@ -24,7 +24,7 @@ Most of the tools have their own set of installation protocols and dependencies.
 ## Using docker image (still under testing)
 
 ```
-docker pull avishekdutta14/imagine:latest
+docker pull avishekdutta14/imagine:v0.1
 ```
 *All the tools can also be ran separately inside the imagine docker container.*
 
