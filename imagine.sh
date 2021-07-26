@@ -49,7 +49,7 @@ bwa mem -t 20 contigs.fasta ../${name}_filt_R1.fq.gz ../${name}_filt_R2.fq.gz > 
 
 samtools view -S -b ${name}_map.sam > ${name}_map.bam 
 
-samtools sort -o ${name}_map_sorted.bam -O bam ${name}_map.bam                                          
+samtools sort -o ${name}_map_sorted.bam -O bam ${name}_map.bam
 
 jgi_summarize_bam_contig_depths --outputDepth ${name}_depth.txt ${name}_map_sorted.bam 
 
