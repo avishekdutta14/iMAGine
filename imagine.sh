@@ -31,7 +31,7 @@ fastp -i ${read1} -I ${read2} -o ${name}_filt_R1.fq.gz -O ${name}_filt_R2.fq.gz 
 
 ## assembling step
 
-metaspades.py -1 ${name}_filt_R1.fq.gz -2 ${name}_filt_R2.fq.gz -k 21,33,55 -o metaspades_output_${name} -t 20 -m 300 
+metaspades.py -1 ${name}_filt_R1.fq.gz -2 ${name}_filt_R2.fq.gz -k 21,33,55 -o metaspades_output_${name} -t 20 -m 300
 
 quast.py metaspades_output_${name}/contigs.fasta -o quast_output
 
@@ -45,19 +45,19 @@ cd binning
 
 bwa index contigs.fasta
 
-bwa mem -t 20 contigs.fasta ../${name}_filt_R1.fq.gz ../${name}_filt_R2.fq.gz > ${name}_map.sam 
+bwa mem -t 20 contigs.fasta ../${name}_filt_R1.fq.gz ../${name}_filt_R2.fq.gz > ${name}_map.sam
 
 samtools view -S -b ${name}_map.sam > ${name}_map.bam 
 
 samtools sort -o ${name}_map_sorted.bam -O bam ${name}_map.bam
 
-jgi_summarize_bam_contig_depths --outputDepth ${name}_depth.txt ${name}_map_sorted.bam 
+jgi_summarize_bam_contig_depths --outputDepth ${name}_depth.txt ${name}_map_sorted.bam
 
-metabat2 -i contigs.fasta -a ${name}_depth.txt -o bins_dir/${name}_bin --seed 1234 -m 1500 
+metabat2 -i contigs.fasta -a ${name}_depth.txt -o bins_dir/${name}_bin --seed 1234 -m 1500
 
 ## checking bin quality
 
-checkm lineage_wf bins_dir/ checkm/ -x .fa -t 25 
+checkm lineage_wf bins_dir/ checkm/ -x .fa -t 25
 
 END=$(date +%s)
 DIFF=$(( $END - $START ))
