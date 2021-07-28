@@ -24,7 +24,7 @@ Most of the tools have their own set of installation protocols and dependencies.
 ## Using docker image (still under testing)
 
 ```
-docker pull avishekdutta14/imagine:v0.1
+docker pull avishekdutta14/imagine:v0.2
 docker run --rm -v "$(pwd)":/dir -w /dir imagine /root/iMAGine/./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
 ```
 *All the tools can also be ran separately inside the imagine docker container.*
