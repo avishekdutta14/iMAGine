@@ -98,7 +98,7 @@ Last but not least is checking the bin qualities. Bin qualities are checked usin
 
 ## For bin segregation mag_extract.py can be used
 
-mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. For running it, place the script in the folder where the bin output folder are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The required checkm input can be obtained from the storage folder (checkm_ouptut/storage/bin_stats_ext.tsv) under the checkm output  (i.e., bin_stats_ext.tsv).
+mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. But it only segregates the bins based on completeness and contaminations, and not on basis of the presence of the 23S, 16S, and 5S rRNA genes and at least 18 tRNAs, which is one of the criteria mentioned in Bowers et al., 2017 for high quality drafts.  For running it, place the script in the folder where the bin output folder are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The required checkm input can be obtained from the storage folder (checkm_ouptut/storage/bin_stats_ext.tsv) under the checkm output  (i.e., bin_stats_ext.tsv).
 
 This script requires python3,  pandas, and numpy (python libraries).
 
