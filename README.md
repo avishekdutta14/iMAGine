@@ -14,7 +14,7 @@ This workflow includes the following tools which are needed to be installed in t
 
 ## Downloading 
 ```
-git clone https://github.com/avishekdutta14/IMAGINE.git
+git clone https://github.com/avishekdutta14/iMAGine.git
 chmod a+x imagine.sh
 ```
 ### Installation and validation of dependencies
@@ -49,7 +49,7 @@ All the parameters set in the shell script are optimized for specific marine sys
 
 Many of the steps/processes/tools use multi-threads for parallelization, and the user can modify it accordingly. This increases resource usage and also decreases the time needed to run processes. This is highly desirable, but it comes with a sacrifice. Many processes used in this pipeline uses probabilistic models. Probabilistic models and many other machine learning models are impacted by the number of threads used since the probabilities and predictions can vary while computing in different threads/CPUs. But, the good news is that these variations are not significant. The results generated will be different (unfortunately), but the difference is small (fortunately). To understand and identify the steps in which you can expect variations are mentioned in the [How it works?](https://github.com/avishekdutta14/IMagINE/blob/main/README.md#how-it-works) section. Morover, the default parameters worked well for specific marine environments and should be modified for other environments. Using default parameters will not gurantee the best result for other environmnets or system (or even other marine systems). To know more on the parameters please consider reading [How it works?](https://github.com/avishekdutta14/IMagINE/blob/main/README.md#how-it-works) section. 
 
-Bioinformatics tools are evolving fast, so future versions may not be compatible with IMAGINE. This tool works with Python version: 3.6.8, fastp v0.21.0, SPAdes version: 3.15.2, QUAST 5.0.2, bwa 0.7.17-r1188, samtools version 1.12, metabat2 (latest version as of May-21), and CheckM v1.1.3. If you feel that any future version of these tools didn't had any major modification with terms of parameters used you can use the future versions.
+Bioinformatics tools are evolving fast, so future versions may not be compatible with iMAGine. This tool works with Python version: 3.6.8, fastp v0.21.0, SPAdes version: 3.15.2, QUAST 5.0.2, bwa 0.7.17-r1188, samtools version 1.12, metabat2 (latest version as of May-21), and CheckM v1.1.3. If you feel that any future version of these tools didn't had any major modification with terms of parameters used you can use the future versions.
 
 ## Output files
 
@@ -66,7 +66,7 @@ Bioinformatics tools are evolving fast, so future versions may not be compatible
 
 ### Filtering of raw reads
 
-Quality assessment and filtering of raw reads are done using fastp. The user can play around with a lot of [parameters](https://github.com/OpenGene/fastp#all-options) and also modify IMAGINE accordingly. IMAGINE uses default parameters along with -e 30 for removing all the reads whose average quality score is less than 30. This is done to remove low-quality reads since the assembling using metaSPAdes is very sensitive to low-quality data. 
+Quality assessment and filtering of raw reads are done using fastp. The user can play around with a lot of [parameters](https://github.com/OpenGene/fastp#all-options) and also modify iMAGine accordingly. iMAGine uses default parameters along with -e 30 for removing all the reads whose average quality score is less than 30. This is done to remove low-quality reads since the assembling using metaSPAdes is very sensitive to low-quality data. 
 
 :warning: The -w (number of threads used) is kept to 1 to make the run deterministic (reproducible). The user can change -w to higher values but should be aware of non-reproducible results (the changes in result will be very low and not significant) :zebra:. Since this process does not take a huge time, setting the number of threads to 1 will not increase the run time hugely.
 
@@ -98,7 +98,7 @@ Last but not least is checking the bin qualities. Bin qualities are checked usin
 
 ## For bin segregation mag_extract.py can be used
 
-mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. But it only segregates the bins based on completeness and contaminations, and not on basis of the presence of the 23S, 16S, and 5S rRNA genes and at least 18 tRNAs, which is one of the criteria mentioned in Bowers et al., 2017 for high quality drafts.  For running it, place the script in the folder where the bin output folder are present. Rename the bin containing folder to bins_dir (If IMAGINE is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The required checkm input can be obtained from the storage folder (checkm_ouptut/storage/bin_stats_ext.tsv) under the checkm output  (i.e., bin_stats_ext.tsv).
+mag_extract.py helps in segregating the bins based on quality, as mentioned in Bowers et al., 2017. But it only segregates the bins based on completeness and contaminations, and not on basis of the presence of the 23S, 16S, and 5S rRNA genes and at least 18 tRNAs, which is one of the criteria mentioned in Bowers et al., 2017 for high quality drafts.  For running it, place the script in the folder where the bin output folder are present. Rename the bin containing folder to bins_dir (If iMAGine is used, the folder will be already named as bins_dir/). Also, place the checkm quality (i.e., bin_stats_ext.tsv) information out to the folder in which mag_extract.py is present. The required checkm input can be obtained from the storage folder (checkm_ouptut/storage/bin_stats_ext.tsv) under the checkm output  (i.e., bin_stats_ext.tsv).
 
 This script requires python3,  pandas, and numpy (python libraries).
 
@@ -115,7 +115,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 1. checkm_bin_quality.csv - Information about bins segregated in high-, medium-, and low- quality drafts
 2. 3 folders viz. high_qual_draft, medium_qual_draft, and low_qual_draft containing high-, medium-, and low- quality bins as per checkm classification
 
-## For downstream analyses (mainly functional and taxonomic annotations) with outputs from IMAGINE and other metagenomic workflows (Tips and Tricks) :gift:
+## For downstream analyses (mainly functional and taxonomic annotations) with outputs from iMAGine and other metagenomic workflows (Tips and Tricks) :gift:
 
 ### For annotating filtered reads for taxonomic affiliation
 
