@@ -12,13 +12,13 @@ import os
 import warnings
 warnings.filterwarnings("ignore")
 
-#Declaring names form checkm file header
+# Declaring names form checkm file header
 
 header_list = ["Bin_Name", "Stats"]
 
 df = pd.read_csv("bin_stats_ext.tsv", sep='\t', names=header_list)
 
-#splitting and adding based on comma as deliminator
+# splitting and adding based on comma as deliminator
 
 df1 = pd.concat([df["Bin_Name"], df["Stats"].str.split(', ', expand=True)], axis=1)
 
@@ -26,11 +26,11 @@ df1 = pd.concat([df["Bin_Name"], df["Stats"].str.split(', ', expand=True)], axis
 
 #df1.to_csv('checkm_stats.csv', index=False)
 
-#Selecting certain columns
+# Selecting certain columns
 
 df2 = df1.iloc[:,[0,11,12]]
 
-#replacing certain strings in the columns
+# replacing certain strings in the columns
 
 df2[10] = df2[10].str.replace("'", "")
 
@@ -40,21 +40,21 @@ df2[10] = df2[10].str.replace("Completeness:", "")
 
 df2[11] = df2[11].str.replace("Contamination:", "")
 
-#renaming the columns
+# renaming the columns
 
 df3 = df2.rename(columns={10: "Completeness", 11: "Contamination"})
 
-#sorting the columns
+# sorting the columns
 
 df4 = df3.sort_values(by='Completeness',  ascending=False)
 
-#saving intermediate file for string to integer
+# saving intermediate file for string to integer
 
 df4.to_csv('refined_stats.csv', index=False)
 
 df5 = pd.read_csv("refined_stats.csv")
 
-#for annotating bins
+# for annotating bins
 conditions = [
     (df5['Completeness'] >= 90) & (df5['Contamination'] <= 5),
     (df5['Completeness'] >= 50) & (df5['Contamination'] <= 10),
@@ -68,7 +68,7 @@ df5['Bin_quality'] = np.select(conditions, values)
 
 df5.to_csv('checkm_bin_quality.csv', index=False)
 
-#segregating  dataframe based on bin quality
+# segregating  dataframe based on bin quality
 
 high = df5[df5['Bin_quality'] == "high"]
 medium = df5[df5['Bin_quality'] == "medium"]
