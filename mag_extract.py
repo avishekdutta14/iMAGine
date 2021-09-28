@@ -99,7 +99,7 @@ os.system ("mkdir medium_qual_draft")
 os.system ("rsync --files-from=medium_name.txt bins_dir/ medium_qual_draft/")
 os.remove ('medium_name.txt')
 
-# For extracting medium quality bins
+# For extracting low quality bins
 
 low_name =  low[["Bin_Name"]]
 
