@@ -4,13 +4,27 @@
 """
 @author: Avishek Dutta, avdutta@ucsd.edu
 @requires: python3, pandas, numpy
+
+If there are no argument passed, this script will segregate Bins based on Bowers et al., 2017 paper.
+If only either one argument (contamination and completeness) is passed then also this script will segregate Bins based on Bowers et al., 2017 paper.
+If both argumentas are passed, then it will select only those bins based on the criteria provided. 
 """
 
 import pandas as pd
 import numpy as np
 import os
+import argparse
 import warnings
 warnings.filterwarnings("ignore")
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument('-cs', '--completeness', help = 'Completeness percentage')
+
+parser.add_argument('-cn', '--contamination', help = 'Contamination percentage')
+
+args = parser.parse_args()
+
 
 # Declaring names form checkm file header
 
@@ -54,63 +68,101 @@ df4.to_csv('refined_stats.csv', index=False)
 
 df5 = pd.read_csv("refined_stats.csv")
 
-# for annotating bins
-conditions = [
-    (df5['Completeness'] >= 90) & (df5['Contamination'] <= 5),
-    (df5['Completeness'] >= 50) & (df5['Contamination'] <= 10),
-    (df5['Completeness'] <= 50) & (df5['Contamination'] <= 10),
-    (df5['Contamination'] >= 10)
-    ]
+a = '{}'.format(args.completeness)
+b = '{}'.format(args.contamination)
 
-values = ['high', 'medium', 'low', 'contamination']
 
-df5['Bin_quality'] = np.select(conditions, values)
+if a !="None" and b !="None":
 
-df5.to_csv('checkm_bin_quality.csv', index=False)
+    # for annotating bins
+    conditions = [
+        (df5['Completeness'] >= float(a)) & (df5['Contamination'] <= float(b))
+        ]
 
-# segregating  dataframe based on bin quality
+    values = ['selected']
 
-high = df5[df5['Bin_quality'] == "high"]
-medium = df5[df5['Bin_quality'] == "medium"]
-low = df5[df5['Bin_quality'] == "low"]
-#contamination = df5[df5['Bin_quality'] == "contamination"]
+    df5['Bin_quality'] = np.select(conditions, values)
 
-# For extracting high quality bins
+    df5.to_csv('checkm_bin_quality.csv', index=False)
 
-high_name =  high[["Bin_Name"]]
+    # segregating  dataframe based on bin quality
 
-high_name['Bin_Name'] =  high_name['Bin_Name'].astype(str) + ".fa"
+    selected= df5[df5['Bin_quality'] == "selected"]
 
-high_name.to_csv('high_name.txt', header=False, index=False)
+    # For extracting high quality bins
 
-os.system ("mkdir high_qual_draft")
-os.system ("rsync --files-from=high_name.txt bins_dir/ high_qual_draft/")
-os.remove ('high_name.txt')
+    selected_name =  selected[["Bin_Name"]]
 
-# For extracting medium quality bins
+    selected_name['Bin_Name'] =  selected_name['Bin_Name'].astype(str) + ".fa"
 
-medium_name =  medium[["Bin_Name"]]
+    selected_name.to_csv('selected_bins.txt', header=False, index=False)
 
-medium_name['Bin_Name'] =  medium_name['Bin_Name'].astype(str) + ".fa"
+    os.system ('mkdir selected_bins')
+    os.system ('rsync --files-from=selected_bins.txt bins_dir/ selected_bins/')
+    os.remove ('selected_bins.txt')
 
-medium_name.to_csv('medium_name.txt', header=False, index=False)
+    os.remove ('refined_stats.csv')
 
-os.system ("mkdir medium_qual_draft")
-os.system ("rsync --files-from=medium_name.txt bins_dir/ medium_qual_draft/")
-os.remove ('medium_name.txt')
+    print ("The selected Bins/MAGs have completeness higher than", a ,"% and contamination less than", b, "%")
 
-# For extracting low quality bins
+else:
+    # for annotating bins
+    conditions = [
+        (df5['Completeness'] >= 90) & (df5['Contamination'] <= 5),
+        (df5['Completeness'] >= 50) & (df5['Contamination'] <= 10),
+        (df5['Completeness'] <= 50) & (df5['Contamination'] <= 10),
+        (df5['Contamination'] >= 10)
+        ]
 
-low_name =  low[["Bin_Name"]]
+    values = ['high', 'medium', 'low', 'contamination']
 
-low_name['Bin_Name'] =  low_name['Bin_Name'].astype(str) + ".fa"
+    df5['Bin_quality'] = np.select(conditions, values)
 
-low_name.to_csv('low_name.txt', header=False, index=False)
+    df5.to_csv('checkm_bin_quality.csv', index=False)
 
-os.system ("mkdir low_qual_draft")
-os.system ("rsync --files-from=low_name.txt bins_dir/ low_qual_draft/")
-os.remove ('low_name.txt')
-os.remove ('refined_stats.csv')
+    # segregating  dataframe based on bin quality
 
-print ("The segregation of Bins/MAGs are done based on criterion mentioned in Bowers et al., 2017")
+    high = df5[df5['Bin_quality'] == "high"]
+    medium = df5[df5['Bin_quality'] == "medium"]
+    low = df5[df5['Bin_quality'] == "low"]
+    #contamination = df5[df5['Bin_quality'] == "contamination"]
+
+    # For extracting high quality bins
+
+    high_name =  high[["Bin_Name"]]
+
+    high_name['Bin_Name'] =  high_name['Bin_Name'].astype(str) + ".fa"
+
+    high_name.to_csv('high_name.txt', header=False, index=False)
+
+    os.system ("mkdir high_qual_draft")
+    os.system ("rsync --files-from=high_name.txt bins_dir/ high_qual_draft/")
+    os.remove ('high_name.txt')
+
+    # For extracting medium quality bins
+
+    medium_name =  medium[["Bin_Name"]]
+
+    medium_name['Bin_Name'] =  medium_name['Bin_Name'].astype(str) + ".fa"
+
+    medium_name.to_csv('medium_name.txt', header=False, index=False)
+
+    os.system ("mkdir medium_qual_draft")
+    os.system ("rsync --files-from=medium_name.txt bins_dir/ medium_qual_draft/")
+    os.remove ('medium_name.txt')
+
+    # For extracting low quality bins
+
+    low_name =  low[["Bin_Name"]]
+
+    low_name['Bin_Name'] =  low_name['Bin_Name'].astype(str) + ".fa"
+
+    low_name.to_csv('low_name.txt', header=False, index=False)
+
+    os.system ("mkdir low_qual_draft")
+    os.system ("rsync --files-from=low_name.txt bins_dir/ low_qual_draft/")
+    os.remove ('low_name.txt')
+    os.remove ('refined_stats.csv')
+
+    print ("The segregation of Bins/MAGs are done based on criterion mentioned in Bowers et al., 2017")
 
