@@ -127,7 +127,7 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 #### The output of mag_extract.py argument input
 
 1. checkm_bin_quality.csv - Information about bins segregated in selected and non-selected drafts
-2. 1 folders viz. selected_bins where all the bins selected based on user provided arguments are present.
+2. 1 folder viz. selected_bins where all the bins selected based on user provided arguments are present.
 
 ## For downstream analyses (mainly functional and taxonomic annotations) with outputs from iMAGine and other metagenomic workflows (Tips and Tricks) :gift:
 
