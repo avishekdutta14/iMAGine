@@ -115,14 +115,14 @@ mag_extract.py can also be added to PATH, but the script should be implemented i
 1. checkm_bin_quality.csv - Information about bins segregated in high-, medium-, and low- quality drafts
 2. 3 folders viz. high_qual_draft, medium_qual_draft, and low_qual_draft containing high-, medium-, and low- quality bins as per checkm classification
 
-### mag_extract.py can be ran using the following command for user input argument for selecting MAGs having completeness >= user-input value and contamination <= user-input value [please use the last stable release v0.1.1 for using the stable mag_extract.py; the present mag_extract.py in the current repository is still under development]
+### mag_extract.py can be ran using the following command for user input argument for selecting MAGs having completeness >= user-input value and contamination <= user-input value 
 
 ```
 chmod a+x mag_extract.py
 ./mag_extract.py -cs [% of completeness] -cn [% of contamination]
 ./mag_extract.py -cs 90 -cn 5
 ```
-mag_extract.py can also be added to PATH, but the script should be implemented in a folder where bins_dir/ and bin_stats_ext.tsv is present
+mag_extract.py can also be added to PATH, but the script should be implemented in a folder where bins_dir/ and bin_stats_ext.tsv is present. Now the script also gives you average coverage information for each bins.
 
 #### The output of mag_extract.py argument input
 
