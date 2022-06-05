@@ -1,1 +1,1 @@
-## This folder is for other associated scripts for iMAGine
+## This folder is for associated scripts for iMAGine
