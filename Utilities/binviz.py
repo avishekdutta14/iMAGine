@@ -4,19 +4,9 @@
 import pandas as pd
 import numpy as np
 import os
-import argparse
 import ast
 from Bio import SeqIO
 import matplotlib.pyplot as plt
-
-parser = argparse.ArgumentParser()
-
-parser.add_argument('-cs', '--completeness', help = 'Completeness percentage')
-
-parser.add_argument('-cn', '--contamination', help = 'Contamination percentage')
-
-args = parser.parse_args()
-
 
 # reading checkM and creating stats
 
