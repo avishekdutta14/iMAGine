@@ -16,10 +16,15 @@ This workflow includes the following tools which are needed to be installed in t
 ```
 git clone https://github.com/avishekdutta14/iMAGine.git
 chmod a+x imagine.sh
+chmod a+x dependency-check.sh
 ```
 ### Installation and validation of dependencies
 
-Most of the tools have their own set of installation protocols and dependencies. They can be obtained from the links mentioned above. This pipeline requires an output of each tool to be piped into the next tool (except for QUAST and the CheckM- since this is the last tool).
+Most of the tools have their own set of installation protocols and dependencies. They can be obtained from the links mentioned above. This pipeline requires an output of each tool to be piped into the next tool (except for QUAST and the CheckM- since this is the last tool). For checking the dependencies are installed and declared to the $PATH, you can run the following command
+
+```
+./dependency-check.sh
+```
 
 ## Using docker image (still under testing)
 
