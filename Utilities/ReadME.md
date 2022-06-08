@@ -29,3 +29,5 @@ To run mag_abund.py
 The main output of this script is **mapped_reads_per_bin_test_output_sample_name.csv**. Other output are sample_name_F904.sam (filtered sam file base on F904 - where unmapped reads and reads mapped to more than one location were removed by using samtools), contig_fate.txt (distribution of contigs in different bins), and pileup_result.txt (result from pileup.sh script- lot of mapping information in it if the user is interested in).
 
 How it works? -> it looks at the contigs binned into each bin, removes unmapped reads and reads mapped to more than one location, extracts mapping infomation for each contigs from filtered sam file and combines results to get the final outcome.
+
+This script is based on the methods reported in [Hervé et al., 2020](10.7717/peerj.8614) and [Hua et al., 2019](10.1038/s41467-019-12574-y).
