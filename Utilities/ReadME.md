@@ -9,7 +9,7 @@ binviz.py is used for vizualizing contamination vs completeness plots. This plot
 _Inputs_
 
 1. bins_dir (output of iMAGine where alls the bins are present) and 
-2. bin_stats_ext.tsv (present insider checkm/storage/ folder). The output will be in scatter_plot_binviz.pdf and refined_stats.csv.
+2. bin_stats_ext.tsv (present insider checkm/storage/ folder). 
 
 _Outputs_
 
