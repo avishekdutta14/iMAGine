@@ -4,7 +4,7 @@
 
 @requires: python3, Pandas, matplotlib, biopython
 
-binviz.py is used for vizualizing contamination vs completeness plots. The coverage informations is calculated from the headers of the contigs here. To get accurate coverage values, I would suggest to generate coverage from the alingned files under binning folder. One can also use the mag_abund.py tool to get a better overview of the number of reads mapped to particular bins. This script will require matplotlib python library. 
+binviz.py is used for vizualizing contamination vs completeness plots. This plots bins having contamination lower than 20 %. The coverage informations is calculated from the headers of the contigs here. To get accurate coverage values, I would suggest to generate coverage from the alingned files under binning folder. One can also use the mag_abund.py tool to get a better overview of the number of reads mapped to particular bins. This script will require matplotlib python library. 
 
 _Inputs_
 
