@@ -108,7 +108,7 @@ else:
 
     df5['Bin_quality'] = np.select(conditions, values)
 
-    df5.to_csv('checkm_bin_quality.csv', index=False)
+    df5.to_csv('checkm_bin_quality.csv', index=True)
 
     # segregating  dataframe based on bin quality
 
