@@ -35,6 +35,9 @@ docker run --rm -v "$(pwd)":/dir -w /dir imagine /root/iMAGine/./imagine.sh -r s
 *All the tools can also be run separately inside the imagine docker container. The standalone version of emapper (for annotation) is integrated inside the image, but due to large sizes of the databses they are not present inside the image. Please download the database and declare it in the PATH before using emapper.py [Details](https://github.com/eggnogdb/eggnog-mapper/wiki/eggNOG-mapper-v2.1.2-to-v2.1.4).* 
 
 ## For running iMAGine
+
+*Important consideration: Create a new folder for each sample and run iMAGine from inside the folder.*
+
 ```
 ./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
 ```
@@ -45,7 +48,7 @@ docker run --rm -v "$(pwd)":/dir -w /dir imagine /root/iMAGine/./imagine.sh -r s
 ```
 ./imagine.sh -h
 ```
-Important consideration: Create a new folder for each sample and run iMAGine from inside the folder.
+*Important consideration: Create a new folder for each sample and run iMAGine from inside the folder.*
 
 ## Important consideration
 
