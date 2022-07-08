@@ -51,7 +51,6 @@ docker run --rm -v "$(pwd)":/dir -w /dir imagine /root/iMAGine/./imagine.sh -r s
 ```
 ./imagine.sh -h
 ```
-*Important consideration: Create a new folder for each sample and run iMAGine from inside the folder.*
 
 ## Important consideration
 
