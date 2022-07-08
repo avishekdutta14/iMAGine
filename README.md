@@ -13,6 +13,9 @@ This workflow includes the following tools which are needed to be installed in t
 7. [CheckM](https://github.com/Ecogenomics/CheckM)
 
 ## Downloading 
+
+You can get the latest stable release [here](https://github.com/avishekdutta14/iMAGine/releases).
+
 ```
 git clone https://github.com/avishekdutta14/iMAGine.git
 chmod a+x imagine.sh
