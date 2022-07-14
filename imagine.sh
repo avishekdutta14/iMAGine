@@ -53,7 +53,7 @@ samtools sort -o ${name}_map_sorted.bam -O bam ${name}_map.bam &&
 
 jgi_summarize_bam_contig_depths --outputDepth ${name}_depth.txt ${name}_map_sorted.bam &&
 
-metabat2 -i contigs.fasta -a ${name}_depth.txt -o bins_dir/${name}_bin --seed 1234 -m 1500 &&
+metabat2 -i contigs.fasta -a ${name}_depth.txt -o bins_dir/${name}_bin --seed 1234 -m 1500 -v &&
 
 ## checking bin quality
 
