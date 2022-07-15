@@ -39,7 +39,7 @@ docker run --rm -v "$(pwd)":/dir -w /dir imagine /root/iMAGine/./imagine.sh -r s
 
 ## For running iMAGine
 
-*Important consideration: Create a new folder for each sample and run iMAGine from inside the folder.*
+*Important consideration: Create a new folder for each sample and run iMAGine from inside the folder. Modify the imagine.txt filename with a unique modifier to avoid overlaps *
 
 ```
 ./imagine.sh -r sample-R1.fastq.gz -R sample-R2.fastq.gz -s sample_name |& tee -a imagine.txt
