@@ -27,21 +27,21 @@ START=$(date +%s)
 
 ## filtering step
 
-fastp -i ${read1} -I ${read2} -o ${name}_filt_R1.fq.gz -O ${name}_filt_R2.fq.gz -e 30 -w 1 &&
+fastp -i ${read1} -I ${read2} -o ${name}_filt_R1.fq.gz -O ${name}_filt_R2.fq.gz -e 30 -w 1 -j fastp_${name}.json -h fastp_${name}.html &&
 
 ## assembling step
 
 metaspades.py -1 ${name}_filt_R1.fq.gz -2 ${name}_filt_R2.fq.gz -k 21,33,55 -o metaspades_output_${name} -t 20 -m 300 &&
 
-quast.py metaspades_output_${name}/contigs.fasta -o quast_output &&
+quast.py metaspades_output_${name}/contigs.fasta -o quast_output_${name} &&
 
 ## binning step
 
-mkdir binning &&
+mkdir binning_${name} &&
 
-cp metaspades_output_${name}/contigs.fasta binning &&
+cp metaspades_output_${name}/contigs.fasta binning_${name} &&
 
-cd binning &&
+cd binning_${name} &&
 
 bwa index contigs.fasta &&
 
