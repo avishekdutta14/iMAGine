@@ -53,3 +53,33 @@ Other output are
 How it works? -> it looks at the contigs binned into each bin, removes unmapped reads and reads mapped to more than one location, extracts mapping information for each contigs from filtered sam file and combines results to get the final outcome.
 
 This script is based on the methods reported in [Hervé et al., 2020](10.7717/peerj.8614) and [Hua et al., 2019](10.1038/s41467-019-12574-y).
+
+## gene_fold_counter.sh
+
+@requires: python3, Pandas, samtools, BBMap (pileup.sh script), gene_fold_counter.py, and emapper annotation output
+
+gene_fold_counter.sh is a tool which counts the number of a particular gene (based on KEGG orthology result in emmapper annotation output) and calculate the coverage of those gene by mapping the genes back to the contigs, calculating the average coverage of the contigs, and mapping back average contig coverage to the gene.
+
+To run gene_fold_counter.sh
+
+Make sure gene_fold_counter.py is in the same folder in which gene_fold_counter.sh is present. gene_fold_counter.sh can also be declared to the $PATH.
+
+```
+./gene_fold_counter.sh name_of_the_sample sam_file annotation_file
+```
+
+_Inputs_
+
+1. name_of_the_sample - this is used to modify the output
+2. sam_file - location and name of the sam_file (output of iMAGine - present inside binning directory)
+3. annotation_file - name of the annotation file (the output of emapper.py)
+
+_Outputs_
+
+The main output is **gene_fold_counter_result_sample_name.csv**
+
+1. sample_name_F904.sam (filtered sam file base on F904 - where unmapped reads and reads mapped to more than one location were removed by using samtools).
+2. pileup_result_sample_name.txt (result from pileup.sh script- lot of mapping information in it if the user is interested in).
+3. sample_name.final.annotations (trimmed annotation files after first 4 and last 3 lines; the are first 4 and last 3 lines contains time-stamp, metadata, and syntax from emapper)
+
+How it works? -> gene_fold_counter.sh is a tool which counts the number of a particular gene (based on KEGG orthology result in emmapper annotation output) and calculate the coverage of those gene by mapping the genes back to the contigs, calculating the average coverage of the contigs, and mapping back average contig coverage to the gene. It removes unmapped reads and reads mapped to more than one location from the .sam file and uses pileup.sh script to calculate the average coverage of each contigs.
