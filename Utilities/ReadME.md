@@ -83,3 +83,27 @@ The main output is **gene_fold_counter_result_sample_name.csv**
 3. sample_name.final.annotations (trimmed annotation files after first 4 and last 3 lines; the are first 4 and last 3 lines contains time-stamp, metadata, and syntax from emapper)
 
 How it works? -> gene_fold_counter.sh is a tool which counts the number of a particular gene (based on KEGG orthology result in emmapper annotation output) and calculate the coverage of those gene by mapping the genes back to the contigs, calculating the average coverage of the contigs, and mapping back average contig coverage to the gene. It removes unmapped reads and reads mapped to more than one location from the .sam file and uses pileup.sh script to calculate the average coverage of each contigs.
+
+## taxfin.sh
+@requires: python3, pandas
+
+taxfin.sh is a tool which is used for filtering functional annotations based on taxa from emapper output
+
+To run taxfin.sh
+
+Make sure taxfin.py is in the same folder in which taxfin.sh is present. taxfin.sh can also be declared to the $PATH. The emapper output (sample_name.emapper.annotations) should be present in the current folder.
+
+```
+./taxfin.sh sample_name taxa_name
+```
+
+_Inputs_
+
+1. sample_name - the sample name used for emapper annotation (for e.g.: sample_name.emapper.annotations)
+2. emapper output - sample_name.emapper.annotations (automatically detected by the script)
+3. taxa_name - the taxa which the user want to keep in the output (anyone of the following input: Virus/Bacteria/Archaea)
+
+_Outputs_
+
+1. sample_name.emapper.annotations_taxa_name.csv - annotations related to particular taxa
+2. sample_name.emapper_taxa_name_counts.csv - counts of different other taxa at lower taxonomic level
