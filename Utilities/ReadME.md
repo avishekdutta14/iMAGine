@@ -52,7 +52,7 @@ Other output are
 
 How it works? -> it looks at the contigs binned into each bin, removes unmapped reads and reads mapped to more than one location, extracts mapping information for each contigs from filtered sam file and combines results to get the final outcome.
 
-This script is based on the methods reported in [Hervé et al., 2020](10.7717/peerj.8614) and [Hua et al., 2019](10.1038/s41467-019-12574-y).
+This script is based on the methods reported in [Hervé et al., 2020](https://peerj.com/articles/8614/) and [Hua et al., 2019](https://www.nature.com/articles/s41467-019-12574-y).
 
 ## gene_fold_counter.sh
 
