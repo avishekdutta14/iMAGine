@@ -1,6 +1,7 @@
 # iMAGine - ***i***n silico ***M***et***AG***enomics pipel***ine*** (BETA)
 
 **iMAGine** is a metagenomic workflow which includes filtering, assembling, and binning.
+**iMAGine-G** is a genomic workflow which includes filtering, assembling, taxonomic identification, and gene calling.
 
 This workflow includes the following tools which are needed to be installed in the system.
 
