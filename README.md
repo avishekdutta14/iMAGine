@@ -7,10 +7,11 @@ This workflow includes the following tools which are needed to be installed in t
 1. [fastp](https://github.com/OpenGene/fastp)
 2. [spades assembler](https://github.com/ablab/spades)
 3. [QUAST](https://github.com/ablab/quast)
-4. [bwa](https://github.com/lh3/bwa) - not needed for imagine-g
-5. [samtools](https://github.com/samtools/samtools)
-6. [metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/)
+4. [bwa](https://github.com/lh3/bwa) - not needed for imagine-g.sh
+5. [samtools](https://github.com/samtools/samtools) - not needed for imagine-g.sh
+6. [metabat2](https://bitbucket.org/berkeleylab/metabat/src/master/) - not needed for imagine-g.sh
 7. [CheckM](https://github.com/Ecogenomics/CheckM)
+8. [GTDB-TK](https://github.com/Ecogenomics/GTDBTk) - not needed for imagine.sh
 
 ## Downloading 
 
