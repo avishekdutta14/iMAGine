@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# author: Avishek Dutta, avdutta@ucsd.edu
+# author: Avishek Dutta, avishek.dutta@uga.edu
 
 helpFunction()
 {
