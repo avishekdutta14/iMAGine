@@ -45,7 +45,7 @@ quast.py spades_output_${name}/contigs.fasta -o quast_output_${name} &&
 
 mkdir genome_dir_${name}
 
-cp spades_output_${name}/contigs.fasta/contigs.fasta genome_dir_${name}
+cp spades_output_${name}/contigs.fasta genome_dir_${name}
 
 ## checking completeness of the genome
 
