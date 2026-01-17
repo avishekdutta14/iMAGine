@@ -22,50 +22,136 @@ do
    esac
 done
 
+for arg in "$@"; do
+  if [[ "$arg" = -c ]] || [[ "$arg" = --complete-anlysis ]]; then
+    ARG_COMPLETE_ANALYSIS=true
+  fi
+  if [[ "$arg" = -a ]] || [[ "$arg" = --assemble ]]; then
+    ARG_ASSEMBLY=true
+  fi
+  if [[ "$arg" = -d ]] || [[ "$arg" = --downstream-analysis ]]; then
+    ARG_DOWNSTREAM=true
+  fi
+   if [[ "$arg" = -uga ]] || [[ "$arg" = --gacrc-analysis ]]; then
+    ARG_GACRC=true
+   fi
+done
 
-START=$(date +%s)
+if [[ "$ARG_GACRC" = true ]]; then
 
-## filtering step
-
-## ml fastp/0.23.2-GCC-11.3.0
-
-fastp -i ${read1} -I ${read2} -o ${name}_filt_R1.fq.gz -O ${name}_filt_R2.fq.gz -e 30 -w 1 -j fastp_${name}.json -h fastp_${name}.html &&
-
-## assembling step
-
-## ml fastp/0.23.2-GCC-11.3.0
-
-spades.py -1 ${name}_filt_R1.fq.gz -2 ${name}_filt_R2.fq.gz -k 21,33,55 -o spades_output_${name} --isolate &&
-
-## checking quality of the assembly
-
-## ml QUAST/5.2.0-foss-2022a
-
-quast.py spades_output_${name}/contigs.fasta -o quast_output_${name} &&
-
-mkdir genome_dir_${name}
-
-cp spades_output_${name}/contigs.fasta genome_dir_${name}
-
-## checking completeness of the genome
-
-## ml CheckM/1.2.2-foss-2022a
-
-checkm lineage_wf genome_dir_${name} checkm/ -x .fasta -t 1
-
-## assigning taxonomy to the genome
-
-## ml GTDB-Tk/2.4.1-foss-2023a
-
-gtdbtk classify_wf --genome_dir genome_dir_${name}/ --out_dir gtdb_output --skip_ani_screen -x .fasta
-
-## Gene calling
-
-## ml prodigal/2.6.3-GCCcore-11.3.0
-
-prodigal -i genome_dir_${name}/contigs.fasta -o ${name}.genes -a ${name}.proteins.faa
-
-END=$(date +%s)
-DIFF=$(( $END - $START ))
+   ## filtering step
+   
+   ml fastp/0.23.2-GCC-11.3.0
+   
+   ## assembling step
+   
+   ml fastp/0.23.2-GCC-11.3.0
+   
+   ## checking quality of the assembly
+   
+   ml QUAST/5.2.0-foss-2022a
+         
+   ## checking completeness of the genome
+   
+   ml CheckM/1.2.2-foss-2022a
+   
+   ## assigning taxonomy to the genome
+   
+   ml GTDB-Tk/2.4.1-foss-2023a
+   
+   ## Gene calling
+   
+   ml prodigal/2.6.3-GCCcore-11.3.0
+   
+   END=$(date +%s)
+   DIFF=$(( $END - $START ))
 
 echo "It took $DIFF seconds"
+fi
+
+if [[ "$ARG_COMPLETE_ANALYSIS" = true ]]; then
+
+   START=$(date +%s)
+   
+   ## filtering step
+   
+   ## ml fastp/0.23.2-GCC-11.3.0
+   
+   fastp -i ${read1} -I ${read2} -o ${name}_filt_R1.fq.gz -O ${name}_filt_R2.fq.gz -e 30 -w 1 -j fastp_${name}.json -h fastp_${name}.html &&
+   
+   ## assembling step
+   
+   ## ml fastp/0.23.2-GCC-11.3.0
+   
+   spades.py -1 ${name}_filt_R1.fq.gz -2 ${name}_filt_R2.fq.gz -k 21,33,55 -o spades_output_${name} --isolate &&
+   
+   ## checking quality of the assembly
+   
+   ## ml QUAST/5.2.0-foss-2022a
+   
+   quast.py spades_output_${name}/contigs.fasta -o quast_output_${name} &&
+   
+   mkdir genome_dir_${name}
+   
+   cp spades_output_${name}/contigs.fasta genome_dir_${name}
+   
+   ## checking completeness of the genome
+   
+   ## ml CheckM/1.2.2-foss-2022a
+   
+   checkm lineage_wf genome_dir_${name} checkm/ -x .fasta -t 1
+   
+   ## assigning taxonomy to the genome
+   
+   ## ml GTDB-Tk/2.4.1-foss-2023a
+   
+   gtdbtk classify_wf --genome_dir genome_dir_${name}/ --out_dir gtdb_output --skip_ani_screen -x .fasta
+   
+   ## Gene calling
+   
+   ## ml prodigal/2.6.3-GCCcore-11.3.0
+   
+   prodigal -i genome_dir_${name}/contigs.fasta -o ${name}.genes -a ${name}.proteins.faa
+   
+   END=$(date +%s)
+   DIFF=$(( $END - $START ))
+
+echo "It took $DIFF seconds"
+fi
+
+if [[ "$ARG_ASSEMBLY" = true ]]; then
+  START=$(date +%s)
+
+   ## filtering step
+   
+   fastp -i ${read1} -I ${read2} -o ${name}_filt_R1.fq.gz -O ${name}_filt_R2.fq.gz -e 30 -w 1 -j fastp_${name}.json -h fastp_${name}.html &&
+   
+   ## assembling step
+   
+   spades.py -1 ${name}_filt_R1.fq.gz -2 ${name}_filt_R2.fq.gz -k 21,33,55 -o spades_output_${name} --isolate &&
+   
+   ## checking quality of the assembly
+   
+   quast.py spades_output_${name}/contigs.fasta -o quast_output_${name} &&
+
+   END=$(date +%s)
+   DIFF=$(( $END - $START ))
+
+echo "It took $DIFF seconds"
+fi
+
+if [[ "$ARG_DOWNSTREAM" = true ]]; then
+   
+   ## checking completeness of the genome
+
+   checkm lineage_wf genome_dir_${name} checkm/ -x .fasta -t 1
+   
+   ## assigning taxonomy to the genome
+   
+   gtdbtk classify_wf --genome_dir genome_dir_${name}/ --out_dir gtdb_output --skip_ani_screen -x .fasta
+   
+   ## Gene calling
+   
+   prodigal -i genome_dir_${name}/contigs.fasta -o ${name}.genes -a ${name}.proteins.faa
+
+fi
