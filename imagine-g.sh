@@ -55,7 +55,7 @@ checkm lineage_wf genome_dir_${name} checkm/ -x .fasta -t 1
 
 ## assigning taxonomy to the genome
 
-## ml GTDB-Tk/2.3.2-foss-2022a
+## ml GTDB-Tk/2.4.1-foss-2023a
 
 gtdbtk classify_wf --genome_dir genome_dir_${name}/ --out_dir gtdb_output --skip_ani_screen -x .fasta
 
